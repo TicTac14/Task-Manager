@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,900&family=Poppins:wght@100;200&family=Press+Start+2P&family=Roboto:wght@100&display=swap');
+
+:root {
+    --bgColor:rgb(26, 56, 93);
+    --wrapperColor: white;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bgColor);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Poppins";
+}
+
+.wrapper {
+    padding: 2em;
+    background-color: var(--wrapperColor);
+    border-radius: 0.5em;
+    transform: translateY(-100px);
+}
+
+.wrapper .title {
+    font-size: larger;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.wrapper button {
+    font-family: "Poppins";
+    width: 60px;
+    height:26px;
+    align-items: center;
+    transform: translateY(-5%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.wrapper input {
+    width: 200px;
+    height:20px;
+    font-size: 18px;
+   
+}
+
+.item-card {
+    transform: translateY(-100px);
+    width: 336px;
+    height: 25px;
+    background-color: var(--wrapperColor);
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+}
+
+.item-card .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.item-card .edit-btn {
+   display: flex;
+   justify-content: center;
+   color: green;
+   cursor: pointer;
+}
+
+.item-card .delete-btn {
+    display: flex;
+    justify-content: center;
+    color: red;
+    cursor: pointer;
+}
