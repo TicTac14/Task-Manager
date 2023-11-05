@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,900&family=Poppins:wght@100;200&family=Press+Start+2P&family=Roboto:wght@100&display=swap');
+
+:root {
+    --bgColor:rgb(26, 56, 93);
+    --wrapperColor: white;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bgColor);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Poppins";
+}
