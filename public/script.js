@@ -4,6 +4,11 @@ const getTasks = async () => {
     return data;
 }
 
+const getSpecificTask = async(id) => {
+    const res = await axios.get(`/api/v1/tasks/${id}`);
+    return res;
+}
+
 const postTask = async (name, id) => {
     const res = await axios.post(`/api/v1/tasks?name=${name}&id=${id}`);
     return res;
@@ -14,17 +19,19 @@ const deleteTask = async (id) => {
     return res;
 }
 
-const updateTask = async (id) => {
-    const res = await axios.put(`/api/v1/tasks/${id}`);
+const updateTask = async (id, name, completed) => {
+
+    const res = await axios.patch(`/api/v1/tasks/${id}?name=${name}&completed=${completed}`);
     return res;
 }
 
 const insertTasks = (tasks) => {
     for (let i = 0; i < tasks.length; i++){
         if (!document.getElementById(tasks[i].id)){
+            let checked = tasks[i].completed == "true" ? "completed" : "";
             document.body.innerHTML += `
             <div class="item-card" id="${tasks[i].id}">
-                <div class="name">${tasks[i].name}</div>
+                <div class="name ${checked}">${tasks[i].name}</div>
                 <div class="buttons">
                     <div class="edit-btn" id="${tasks[i].id}"><span class="material-symbols-outlined">
                         edit
@@ -61,9 +68,32 @@ const addEventListeners = () => {
     editBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const id = btn.getAttribute('id');
-            updateTask(id).then((res, rej) => console.log(res));
-            
-        })
+            const {data} = await getSpecificTask(id);
+            const wrap1 = document.querySelector('.wrapper');
+            const wrap2 = document.querySelector('.wrapper2');
+
+            document.querySelectorAll('.item-card').forEach(item => {
+                item.remove();
+            });
+
+            wrap1.classList.add('hidden');
+            wrap2.classList.remove('hidden');
+            document.getElementById('id').innerText = id;
+            document.getElementById('name').value = data.data.name;
+            document.getElementById('checkbox').checked = data.data.completed == "true" ? true : false;
+            console.log(data.data);
+            console.log(document.getElementById('checkbox').checked);
+            document.querySelector('.return').addEventListener('click', async() => {
+                const data = await updateTask(
+                id,
+                document.getElementById('name').value,
+                document.getElementById('checkbox').checked
+                );
+                wrap1.classList.remove('hidden');
+                wrap2.classList.add('hidden');
+                main();            
+            })
+        })  
     });
 
     deleteBtns.forEach(btn => {
