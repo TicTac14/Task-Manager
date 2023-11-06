@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,900&family=Poppins:wght@100;200&family=Press+Start+2P&family=Roboto:wght@100&display=swap');
+
+:root {
+    --bgColor:rgb(26, 56, 93);
+    --wrapperColor: white;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bgColor);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Poppins";
+}
+
+.wrapper {
+    padding: 2em;
+    background-color: var(--wrapperColor);
+    border-radius: 0.5em;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper .title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    width: 100%;
+    
+
+}
+
+.wrapper .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    height:40px;
+
+}
+
+.wrapper .content input {
+    flex-grow: 1;
+    height: 100%;
+    padding: 0;
+    margin:0;
+    border: 0px 0px 0px 0px;
+    font-size: 25px;
+
+    
+}
+
+
+.wrapper2 {
+    width: 350px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    box-shadow: 0px 0px 15px 10px rgba(98, 98, 98, 0.472);
+}
+
+.wrapper2 div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.task-name input, .task-id input {
+    flex-grow: 1;
+}
+
+.wrapper2 button {
+    padding: 5px 10px 5px 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: Poppins;
+    font-weight: bolder;
+    background-color: rgb(243, 203, 94);
+    margin-bottom: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0px 0px 15px 5px rgba(157, 157, 157, 0.42);
+}
+
+.wrapper2 button:hover {
+    opacity: 0.4;
+}
+.wrapper2 button:active {
+    opacity: 1;
+}
+
+.wrapper .content button {
+    height: 110%;
+    border: none;
+    margin-left:-5px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: rgb(228, 166, 50);
+    font-family: Poppins;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    
+
+
+    
+}
+
+.item-card {
+    width: 336px;
+    height: 25px;
+    background-color: var(--wrapperColor);
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+}
+
+.item-card .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    
+}
+
+.item-card .edit-btn {
+   display: flex;
+   justify-content: center;
+   color: green;
+   cursor: pointer;
+}
+
+.item-card .delete-btn {
+    display: flex;
+    justify-content: center;
+    color: red;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}

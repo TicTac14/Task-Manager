@@ -12,8 +12,27 @@
     <body>
         <div class="wrapper">
             <div class="title">Task Manager</div>
-            <input type="text" id="textEle">
-            <button id="submitButton">Submit</button>
+            <div class="wrapper content">
+                <input type="text" id="textEle" placeholder="eg. washing dishes">
+                <button id="submitButton">Submit</button>
+            </div>
+        </div>
+
+        <div class="wrapper2 hidden">
+            <div class="task-name">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="task-id">
+                ID: <span id="id"></span>
+            </div>
+            <div class="task-completed">
+                <label for="completed">Task Completed:</label>
+                <input type="checkbox" name="completed" id="checkbox">
+            </div>
+            <div class="returnBtn">
+                <button class="return" id="returnBtn">Return to Previous Page</button>
+            </div>
         </div>
         
         

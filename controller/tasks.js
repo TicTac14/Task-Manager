@@ -13,9 +13,8 @@ const getSpecifiedTask = (req, res) => {
     const specifiedTask = data.tasks.filter(item => {
         return item.id == id
     })[0];
-    console.log(specifiedTask);
     try {
-        res.status(200).json({success: true, response:specifiedTask})
+        res.status(200).json({success: true, data:specifiedTask})
     } catch (error) {
         res.status(404).json({success:false, msg:"GET requrest failed..."})
     }
@@ -23,7 +22,7 @@ const getSpecifiedTask = (req, res) => {
 
 const createTask = (req, res) => {
     const {name, id} = req.query;
-    data.tasks.push({name:name, id:id});
+    data.tasks.push({name:name, id:id, completed:false});
     try {
         res.status(200).json({success:true})
     } catch (error) {
@@ -48,9 +47,18 @@ const deleteTask = (req, res) => {
 }
 
 const updateTask = (req, res) => {
+    const {id} = req.params;
+    const {name, completed} = req.query;
+    const task = data.tasks.find(item => {
+        return item.id == id;
+    });
+    const index = data.tasks.indexOf(task);
+    console.log(task, name, id, completed);
+    console.log('update Task');
+    data.tasks[index] = {name:name, id:id, completed:completed};
     
     try {
-        res.status(200).json({success:true});
+        res.status(200).json({success:true, msg: "Task Updated"});
     } catch (error) {
         res.status(404).json({success:false})
     }
